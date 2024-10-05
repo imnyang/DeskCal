@@ -1,0 +1,24 @@
+name: Build/release
+
+on: workflow_dispatch
+
+jobs:
+  release:
+    runs-on: windows-latest
+    steps:
+      - name: Check out Git repository
+        uses: actions/checkout@v1
+
+      - name: Install Node.js
+        uses: actions/setup-node@v4.0.4
+        with:
+          node-version: 20
+
+      - name: Build/release Electron app
+        uses: samuelmeuli/action-electron-builder@v1
+
+      - name: upload
+        uses: actions/upload-artifact@v3
+        with:
+          name: dist
+          path: dist
