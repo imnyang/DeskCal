@@ -15,7 +15,7 @@ jobs:
           node-version: 20
 
       - name: Build/release Electron app
-        uses: samuelmeuli/action-electron-builder@v1
+        run: npm deploy
 
       - name: upload
         uses: actions/upload-artifact@v3
